@@ -1,34 +1,45 @@
-# arduino_additional_boards
-How to program the ATTINY and ESP8266 boards with the Arduino IDE
+# Arduino Additional Boards - ATTINY & ESP8266 Setup
 
-Work in progress. 
+This repository provides a guide on how to set up ATTINY and ESP8266 boards with the Arduino IDE.
 
-// ESP package for Arduino IDE. Preferences > Additional Boards
-http://arduino.esp8266.com/stable/package_esp8266com_index.json
+### Work in Progress
 
-// ATTINY58
-https://raw.githubusercontent.com/damellis/attiny/ide-1.6.x-boards-manager/package_damellis_attiny_index.json
+Here are the steps to get started:
 
-// Turning the Arduino into a Programmer.
-http://highlowtech.org/?p=1706
+### 1. **Install ESP8266 package for Arduino IDE**
+   - Open Arduino IDE.
+   - Go to **Preferences**.
+   - In **Additional Boards Manager URLs**, add the following:
+     ```
+     http://arduino.esp8266.com/stable/package_esp8266com_index.json
+     ```
 
-1. Add the following to preferences > additional boards
-https://raw.githubusercontent.com/damellis/attiny/ide-1.6.x-boards-manager/package_damellis_attiny_index.json
+### 2. **Install ATTINY package for Arduino IDE**
+   - In **Preferences**, add the following:
+     ```
+     https://raw.githubusercontent.com/damellis/attiny/ide-1.6.x-boards-manager/package_damellis_attiny_index.json
+     ```
 
-2. Add attiny by Davis A. Mellis library
+### 3. **Install ATTINY Board Support**
+   - Go to **Tools** > **Board** > **Boards Manager**.
+   - Search for **ATTINY** by Davis A. Mellis and install it.
 
-3. Upload this example to the Uno, Examples > ArduinoISP
+### 4. **Set up Arduino as ISP**
+   - Upload the **ArduinoISP** example to your Arduino Uno:
+     - Go to **File** > **Examples** > **11.ArduinoISP** > **ArduinoISP**.
+   - Change the programmer to **Arduino as ISP**:
+     - **Tools** > **Programmer** > **Arduino as ISP**.
 
-4. Change the programmer to - ISP for Arduino
+### 5. **Wire up the ATTINY**
+   - Connect the ATTINY chip to the Arduino using the schematic for Arduino as ISP.
+     - See more: [HighLowTech Arduino as ISP tutorial](http://highlowtech.org/?p=1706).
 
-5. Connect the attiny board using schematic
+### 6. **Configure ATTINY Settings**
+   - Set the board to **ATTiny**.
+   - Choose **ATtiny85** with an 8 MHz (internal) clock.
 
-6. Add the following settings. 
-- Set the board to ATTiny
-- Set ATtiny85 to 8 MHz (internal) clock
+### 7. **Burn the Bootloader**
+   - Go to **Tools** > **Burn Bootloader** to set the fuses correctly for the ATTINY85.
 
-7. Select burn bootloader
-
-8. Upload sketch
-
-
+### 8. **Upload Sketch to ATTINY**
+   - Finally, upload your sketch to the ATTINY using **Tools** > **Upload Using Programmer**.
